@@ -10,6 +10,8 @@ game
 .vscode/
 .idea/
 
+
+
 # Ignore system files
 .DS_Store
 Thumbs.db
