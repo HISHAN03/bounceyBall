@@ -5,6 +5,10 @@
 
 void update()
 {
+    if (gameState != GAME) {
+        return;
+    }
+
     // Update the rectangle's position based on the keys pressed
     if (moveLeft && left > -600)
     {
@@ -45,8 +49,7 @@ void updateBallPosition()
         else
         {
             // Ball misses the catcher, game over
-            std::cout << "Game Over !!!\nYour Score is :\t" << score << std::endl;
-            exit(0);
+            gameState = GAME_OVER;
         }
     }
 

@@ -1,0 +1,23 @@
+# Ignore object files
+*.o
+
+# Ignore executable files
+*.exe
+*.out
+game
+
+# Ignore editor-specific directories
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*~
+*.swp
+*.log
+
+# Ignore the build directory if you have one
+build/
