@@ -1,5 +1,3 @@
-// display.cpp
-
 #include <iostream>
 #include <cmath>
 #include "myglut.h"
@@ -39,6 +37,18 @@ void myDisplay()
         glVertex2i(right, -295);
         glVertex2i(right, -315);
         glEnd();
+
+        // Draw the circles
+        for (const auto& circle : circles) {
+            glBegin(GL_LINE_LOOP);
+            for (int j = 0; j < 360; j++) {
+                float theta = j * pi / 180;
+                float x = circle.radius * cos(theta);
+                float y = circle.radius * sin(theta);
+                glVertex2i(circle.x + x, circle.y + y);
+            }
+            glEnd();
+        }
     } else if (gameState == GAME_OVER) {
         drawGameOver();
     }

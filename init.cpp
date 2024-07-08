@@ -1,5 +1,3 @@
-// init.cpp
-
 #include "myglut.h"
 
 void myInit(void)
@@ -18,4 +16,7 @@ void myInit(void)
 
     // Set window size in X- and Y- direction
     gluOrtho2D(-620.0, 620.0, -340.0, 340.0);
+
+    initializeCircles(); // Initialize circles once
+    resetGame();         // Reset game variables
 }

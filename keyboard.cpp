@@ -1,5 +1,3 @@
-// keyboard.cpp
-
 #include "myglut.h"
 
 void keyboard(unsigned char key, int x, int y)
@@ -10,12 +8,8 @@ void keyboard(unsigned char key, int x, int y)
         if (key == 'q') {
             exit(0);  // Quit the game
         } else {
-            // Restart the game
             gameState = GAME;
-            // Reset game variables
-            m = 0; j = 1; n = 0; score = 0;
-            left = -200; right = 200;
-            moveLeft = moveRight = false;
+            resetGame(); // Reset the game on restart without reinitializing circles
         }
     } else if (gameState == GAME) {
         if (key == 'b') {
