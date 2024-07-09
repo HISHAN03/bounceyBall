@@ -4,6 +4,7 @@
 
 int main(int argc, char** argv)
 {
+    
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowSize(1100, 600);

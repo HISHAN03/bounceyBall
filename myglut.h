@@ -1,3 +1,4 @@
+// myglut.h
 #ifndef MYGLUT_H
 #define MYGLUT_H
 
@@ -25,6 +26,7 @@ extern int c, d, left, right;
 extern int m, j, flag1, l, flag2, n, score, count;
 extern bool moveLeft, moveRight;
 extern std::vector<Circle> circles;
+extern int highScore; // Declare high score
 
 void myInit(void);
 void myDisplay(void);

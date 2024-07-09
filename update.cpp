@@ -24,6 +24,9 @@ void update()
         left += 5;
         right += 5;
     }
+    if (score > highScore) {
+        highScore = score;
+    }
 
     updateBallPosition();
     glutPostRedisplay(); // Request a redraw

@@ -10,6 +10,7 @@ int m = 0, j = 1, flag1 = 0, l = 1, flag2 = 0, n = 0, score = 0, count = 1;
 bool moveLeft = false;
 bool moveRight = false;
 std::vector<Circle> circles;
+int highScore = 0;
 
 void initializeCircles() {
     circles.clear();
