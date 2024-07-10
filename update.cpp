@@ -15,7 +15,7 @@ void update()
         return;
     }
 
-    // Update the rectangle's position based on the keys pressed
+   
     if (moveLeft && left > -600) {
         left -= 5;
         right -= 5;
@@ -29,43 +29,42 @@ void update()
     }
 
     updateBallPosition();
-    glutPostRedisplay(); // Request a redraw
+    glutPostRedisplay(); 
 }
 
 void updateBallPosition()
 {
-    // Update ball position
+   
     m += 6 * j;
     n += 4 * l;
 
-    // Check for collision with the top bound
+ 
     if (m >= 288) {
-        j = -1;  // Reverse vertical direction
+        j = -1;  
     }
 
-    // Check for collision with the floor
+   
     if (m <= -276) {
         if (left <= (n + 20) && right >= (n - 20)) {
-            // Ball hits the catcher, bounce back
+          
             j = 1;
             score++;
         } else {
-            // Ball misses the catcher, game over
+           
             gameState = GAME_OVER;
         }
     }
 
-    // Check for collision with left and right bounds
+   
     if (n >= 580 || n <= -580) {
-        l = -l;  // Reverse horizontal direction
-    }
+        l = -l;  
 
-    // Check for collision with circles
+   
     for (auto it = circles.begin(); it != circles.end();) {
         if (checkCollision(n, m, 20, it->x, it->y, it->radius)) {
-            j = -j; // Reverse vertical direction
-            l = -l; // Reverse horizontal direction
-            it = circles.erase(it); // Remove the circle upon collision
+            j = -j; 
+            l = -l; 
+            it = circles.erase(it); 
         } else {
             ++it;
         }

@@ -2,8 +2,6 @@
 #include <cmath>
 #include "myglut.h"
 
-
-
 void drawCircle(float cx, float cy, float radius, int segments) {
     glBegin(GL_POLYGON);
     for (int i = 0; i <= segments; ++i) {
@@ -49,18 +47,18 @@ void myDisplay()
     if (gameState == MENU) {
         drawMenu();
     } else if (gameState == GAME) {
-        // Draw the ball
-        glColor3f(1.0f, 0.0f, 0.0f); // Red color for the ball
+     
+        glColor3f(1.0f, 0.0f, 0.0f); 
         float ballRadius = 20.0f;
         drawCircle(n, m, ballRadius, 100);
 
-        // Draw ball outline
-        glColor3f(1.0f, 1.0f, 1.0f); // White color for the outline
+    
+        glColor3f(1.0f, 1.0f, 1.0f); 
         glLineWidth(2.0f);
         drawCircleOutline(n, m, ballRadius, 100);
 
-        // Draw outer rectangle
-        glColor3f(1.0f, 1.0f, 1.0f); // White color for the border
+        
+        glColor3f(1.0f, 1.0f, 1.0f); 
         glLineWidth(4.0f); 
         glBegin(GL_LINE_LOOP);
         glVertex2i(-600, -320);
@@ -69,8 +67,8 @@ void myDisplay()
         glVertex2i(600, -320);
         glEnd();
 
-        // Draw the filled catcher rectangle
-        glColor3f(0.4f, 0.26f, 0.13f); // Dark brown color for the catcher
+      
+        glColor3f(0.4f, 0.26f, 0.13f); 
         glBegin(GL_POLYGON);
         glVertex2i(left, -315);
         glVertex2i(right, -315);
@@ -78,8 +76,8 @@ void myDisplay()
         glVertex2i(left, -295);
         glEnd();
 
-        // Draw catcher outline
-        glColor3f(1.0f, 1.0f, 1.0f); // White color for the outline
+    
+        glColor3f(1.0f, 1.0f, 1.0f); 
         glLineWidth(2.0f);
         glBegin(GL_LINE_LOOP);
         glVertex2i(left, -315);
@@ -88,18 +86,18 @@ void myDisplay()
         glVertex2i(left, -295);
         glEnd();
 
-        // Draw circles
+       
         for (const auto& circle : circles) {
-            glColor3f(0.5f, 0.0f, 0.5f); // Violet color for the circles
+            glColor3f(0.5f, 0.0f, 0.5f); 
             drawCircle(circle.x, circle.y, circle.radius, 100);
 
-            // Draw circle outline
-            glColor3f(1.0f, 1.0f, 1.0f); // White color for the outline
+          
+            glColor3f(1.0f, 1.0f, 1.0f); 
             glLineWidth(2.0f);
             drawCircleOutline(circle.x, circle.y, circle.radius, 100);
         }
 
-        // Draw score
+     
         drawScore(score, highScore);
     } else if (gameState == GAME_OVER) {
         drawGameOver();
@@ -110,27 +108,34 @@ void myDisplay()
 
 void drawMenu()
 {
-    // Draw the game title
-    glColor3f(1.0, 1.0, 1.0); // White color
-    glRasterPos2i(-200, 100); // Position for the title
-    std::string gameTitle = "Bounce Ball";
-    for (char c : gameTitle) {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
-    }
-
-    // Draw the menu instructions
-    glRasterPos2i(-200, 0);
+   
+    glColor3f(1.0, 1.0, 1.0);
+    int xOffset = -200;
+    int yOffset = 100;
+    std::string gameTitle = "BOUNCING BALL";
+    
+  
+   
+            glRasterPos2i(xOffset, yOffset );
+            for (char c : gameTitle) {
+                glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
+            }
+   
+  
+    glColor3f(1.0, 1.0, 1.0); 
+    glRasterPos2i(-180, 0);
     std::string menuText = "Press any key to start";
     for (char c : menuText) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
 
     glRasterPos2i(-200, -50);
-    std::string instructions = "Use 'b' and 'n' keys to move the catcher";
+    std::string instructions = "Use 'b' and 'n' keys to move ";
     for (char c : instructions) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
     }
 }
+
 
 void drawGameOver()
 {

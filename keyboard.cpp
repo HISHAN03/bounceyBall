@@ -6,10 +6,10 @@ void keyboard(unsigned char key, int x, int y)
         gameState = GAME;
     } else if (gameState == GAME_OVER) {
         if (key == 'q') {
-            exit(0);  // Quit the game
+            exit(0);  
         } else {
             gameState = GAME;
-            resetGame(); // Reset the game on restart without reinitializing circles
+            resetGame();
         }
     } else if (gameState == GAME) {
         if (key == 'b') {
